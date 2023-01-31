@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dvd_magyarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dvd_magyar.dbo.kolcsonzesek' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="kolcsonzesek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ki" Type="int" />
+          <Property Name="mit" Type="int" />
+          <Property Name="ki_datum" Type="date" />
+          <Property Name="vissza_datum" Type="date" />
+        </EntityType>
+        <EntityContainer Name="dvd_magyarModelStoreContainer">
+          <EntitySet Name="kolcsonzesek" EntityType="Self.kolcsonzesek" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [kolcsonzesek].[ID] AS [ID], 
+    [kolcsonzesek].[ki] AS [ki], 
+    [kolcsonzesek].[mit] AS [mit], 
+    [kolcsonzesek].[ki_datum] AS [ki_datum], 
+    [kolcsonzesek].[vissza_datum] AS [vissza_datum]
+    FROM [dbo].[kolcsonzesek] AS [kolcsonzesek]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dvd_magyarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="kolcsonzesek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ki" Type="Int32" />
+          <Property Name="mit" Type="Int32" />
+          <Property Name="ki_datum" Type="DateTime" Precision="0" />
+          <Property Name="vissza_datum" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="dvd_magyarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="kolcsonzesek" EntityType="Self.kolcsonzesek" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dvd_magyarModelStoreContainer" CdmEntityContainer="dvd_magyarEntities">
+          <EntitySetMapping Name="kolcsonzesek">
+            <EntityTypeMapping TypeName="dvd_magyarModel.kolcsonzesek">
+              <MappingFragment StoreEntitySet="kolcsonzesek">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ki" ColumnName="ki" />
+                <ScalarProperty Name="mit" ColumnName="mit" />
+                <ScalarProperty Name="ki_datum" ColumnName="ki_datum" />
+                <ScalarProperty Name="vissza_datum" ColumnName="vissza_datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
